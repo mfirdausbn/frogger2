@@ -8,11 +8,14 @@
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <h3>Seconds Left: <span id="time-left">30</span></h3>
+    <h3>Seconds Left: <span id="time-left">60</span></h3>
     <h3>Result: <span id="result"></span></h3>
+    <h3>Dragonflies eaten: <span id="dragonfly-eaten"></span></h3>
 
     <button id="start-pause-button">Start/Pause</button>
-
+    <button onclick="location.reload();">Restart</button>
+    <button id="increase-speed">Increase speed</button>
+    <!-- <button id="decrease-speed">Decrease speed</button> -->
     <div class="grid">
       <!-- row of divs with ending block at the center -->
       <div class="grass"></div>
@@ -24,7 +27,6 @@
       <div class="grass"></div>
       <div class="grass"></div>
       <div class="grass"></div>
-      <!-- one empty row of div -->
       <div class="grass"></div>
       <div class="grass"></div>
       <div class="grass"></div>
@@ -34,7 +36,6 @@
       <div class="grass"></div>
       <div class="grass"></div>
       <div class="grass"></div>
-      <!-- divs for logs go below here -->
       <div class="log log-right l5"></div>
       <div class="log-right l1"></div>
       <div class="log-right l2"></div>
@@ -62,7 +63,6 @@
       <div class="log-right l1"></div>
       <div class="log-right l2"></div>
       <div class="log-right l3"></div>
-      <!-- two empty rows of div-->
       <div class="grass snake-left s1"></div>
       <div class="grass snake-left s2"></div>
       <div class="grass snake-left s3"></div>
@@ -81,7 +81,6 @@
       <div class="grass snake-right s3"></div>
       <div class="grass snake-right s1"></div>
       <div class="grass snake-right s2"></div>
-      <!-- divs for cars go below here -->
       <div class="road car-right c4"></div>
       <div class="road car-right c5"></div>
       <div class="road car-right c6"></div>
@@ -109,7 +108,6 @@
       <div class="road car-right c4"></div>
       <div class="road car-right c5"></div>
       <div class="road car-right c6"></div>
-      <!-- two empty rows of div -->
       <div class="grass snake-left s1"></div>
       <div class="grass snake-left s2"></div>
       <div class="grass snake-left s3"></div>
@@ -128,8 +126,6 @@
       <div class="grass"></div>
       <div class="grass"></div>
       <div class="grass"></div>
-
-      <!-- row of divs with ending block at the center -->
       <div class="grass"></div>
       <div class="grass"></div>
       <div class="grass"></div>

@@ -12,10 +12,13 @@ const snakesRight = document.querySelectorAll(".snake-right");
 const resultDisplay = document.querySelector("#result");
 const timeLeftDisplay = document.querySelector("#time-left");
 const startPauseBtn = document.querySelector("#start-pause-button");
+const increaseSpdBtn = document.querySelector("#increase-speed");
+const numOfDragonflyEatenDisplay = document.querySelector("#dragonfly-eaten");
 
 let currentIndex = 112; // this is the index of the starting block
-let currentTime = 20;
+let currentTime = 60;
 let timerId; // this variable is needed to allow game to start/pause and move/stop elements
+let numOfDragonflyEaten = 0;
 
 ////////////////////////////////////////////////////////////////////
 ////////////////CREATE FUNCTION TO MOVE FROG////////////////////////
@@ -230,9 +233,17 @@ function moveSnakeRight(snakeRight) {
 function win() {
   if (squares[currentIndex].classList.contains("dragonfly")) {
     resultDisplay.innerHTML = "Yumz";
-    clearInterval(timerId); //stops elements from moving
-    document.removeEventListener("keyup", moveFrog);
-    currentTime = 21;
+    // clearInterval(timerId); //stops elements from moving
+    // document.removeEventListener("keyup", moveFrog);
+    // currentTime = 21;
+    squares[currentIndex].classList.remove("frog");
+    squares[112].classList.add("frog");
+    currentIndex = 112;
+
+    
+    numOfDragonflyEaten ++;
+    numOfDragonflyEatenDisplay.innerHTML = numOfDragonflyEaten;
+    increaseSpeed();
   }
 }
 
@@ -262,12 +273,32 @@ function startOrPause() {
     timerId = null;
   } else {
     squares[currentIndex].classList.add("frog");
-    timerId = setInterval(autoMoveElements, 600); // set speed of elements moving
-    setInterval(timerCountdown, 1000);            // timer interval set to 1 sec
+    timerId = setInterval(autoMoveElements, 800); // set speed of elements moving
+    setInterval(timerCountdown, 1000); // timer interval set to 1 sec
     document.addEventListener("keyup", moveFrog); // this is shifted here so that frog only moves when start button is clicked
-    console.log(timerId);
+    // console.log(timerId);
   }
 }
 
-setInterval(win, 10); //checks for win every 0.01 sec
-setInterval(lose, 10);
+setInterval(win, 100); //checks for win every 0.1 sec
+setInterval(lose, 100);
+
+///////////////////////////////////////////////////////////////////////////////
+//Create function to increase/decrease difficulty//////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+// let baseSpeed = 600;
+increaseSpdBtn.addEventListener("click", increaseSpeed);
+function increaseSpeed() {
+  // baseSpeed -= 200;
+  clearInterval(timerId);
+  setInterval(autoMoveElements, 700);
+  // console.log(baseSpeed);
+}
+
+// function decreaseDifficulty() {
+//   // baseSpeed += 200;
+//   setInterval(autoMoveElements, 800);
+//   // console.log(baseSpeed);
+// }
+// document.querySelector("#decrease-speed").addEventListener("click",decreaseDifficulty);

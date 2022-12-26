@@ -1,21 +1,22 @@
 .grid {
   border: 2px solid black;
-  height: 520px;
-  width: 360px;
+  height: 780px;
+  width: 540px;
   /* display and flex wrap are important for making sure the squares fit into the container */
   display: flex;
   flex-wrap: wrap;
 }
 
 .grid div {
-  height: 40px;
-  width: 40px;
+  height: 60x;
+  width: 60px;
 
   /* this makes each "square" is 40 by 40 and there will be a 9x13  grid */
 }
 
 .dragonfly {
   background-image: url(/images/dragonfly.png);
+  background-size: cover;
 }
 
 .starting-block {
@@ -33,12 +34,15 @@
 
 .l1 {
   background-image: url(/images/leftLog.png);
+  background-size: cover;
 }
 .l2 {
   background-image: url(/images/middleLog.png);
+  background-size: cover;
 }
 .l3 {
   background-image: url(/images/rightLog.png);
+  background-size: cover;
 }
 
 .road {
@@ -48,21 +52,25 @@
 .car-right.c1,
 .car-right.c5 {
   background-image: url(/images/redBusRight.png);
+  background-size: cover;
 }
 
 .car-left.c1,
 .car-left.c5 {
   background-image: url(/images/redBusLeft.png);
+  background-size: cover;
 }
 
 .snake-left.s1{
   background-image: url(/images/snekLeft.png);
+  background-size: cover;
 }
 .snake-right.s1{
   background-image: url(/images/snekRight.png);
+  background-size: cover;
 }
 
 .frog {
   background-image: url(/images/bigFroggy.png);
-  z-index: 2;
+  background-size: cover;
 }
